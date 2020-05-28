@@ -3,7 +3,7 @@ import pygame
 
 class Player(pygame.sprite.Sprite):
     def __init__(self, x, y, path_to_image):
-        pygame.sprite.Sprite.__init__(self)
+        pygame.sprite.Sprite.__init__(self)        
         self.image = pygame.image.load(path_to_image)
         self.width = self.image.get_width()
         self.height = self.image.get_height()
@@ -26,8 +26,6 @@ class Player(pygame.sprite.Sprite):
         if self.direction == Direction.NONE:
             self.velocity = pygame.math.Vector2(0, 0)
             
-        print(self.direction)
-        
         self.move()
         
         self.location += self.velocity
@@ -57,4 +55,39 @@ class Player(pygame.sprite.Sprite):
     def set_location(self, x, y):
         self.location = pygame.math.Vector2(x, y)
         self.bounds = pygame.Rect(self.location.x, self.location.y, self.width, self.height)
+    
+    def collide_with(self, rect):
+        if self.bounds.colliderect(rect):
+            print("collision")
+        else:
+            print("")
 
+class Object(pygame.sprite.Sprite):
+    def __init__(self, x, y, path_to_image):
+        pygame.sprite.Sprite.__init__(self)        
+        self.image = pygame.image.load(path_to_image)
+        self.width = self.image.get_width()
+        self.height = self.image.get_height()
+        self.location = pygame.math.Vector2(x, y)
+        self.bounds = pygame.Rect(x, y, self.width, self.height)
+    
+    def update(self):
+        self.bounds = pygame.Rect(self.location.x, self.location.y, self.width, self.height)
+        
+    def set_width(self, width):
+        self.width = width
+        self.bounds = pygame.Rect(self.location.x, self.location.y, self.width, self.height)
+    
+    def set_height(self, height):
+        self.height = height
+        self.bounds = pygame.Rect(self.location.x, self.location.y, self.width, self.height)
+    
+    def set_location(self, x, y):
+        self.location = pygame.math.Vector2(x, y)
+        self.bounds = pygame.Rect(self.location.x, self.location.y, self.width, self.height)
+    
+    def collide_with(self, rect):
+        if self.bounds.colliderect(rect):
+            print("collision")
+        else:
+            print("")

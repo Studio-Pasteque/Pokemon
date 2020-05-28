@@ -9,6 +9,7 @@ pygame.display.set_caption("Pokemon")
 clock = pygame.time.Clock()
 
 player = Player(Window.WIDTH / 2, Window.HEIGHT / 2, "assets/Player.png")
+obstacle = Object(200, 200, "assets/Player.png")
 
 running = True
 while running:
@@ -19,9 +20,13 @@ while running:
             running = False
     
     player.update()
+    obstacle.update()
+    obstacle.collide_with(player.bounds)
     
     screen.fill(Color.BLACK)
-    screen.blit(player.image, player.location)
+    screen.blit(player.image, player.bounds)
+    screen.blit(obstacle.image, obstacle.bounds)
+    
     pygame.display.update()
 
 pygame.quit()
