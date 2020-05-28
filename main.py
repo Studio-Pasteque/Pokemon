@@ -8,7 +8,7 @@ screen = pygame.display.set_mode((Window.WIDTH, Window.HEIGHT))
 pygame.display.set_caption("Pokemon")
 clock = pygame.time.Clock()
 
-player = Object(Window.WIDTH / 2, Window.HEIGHT / 2, "assets/Player.png")
+player = Player(Window.WIDTH / 2, Window.HEIGHT / 2, "assets/Player.png")
 
 running = True
 while running:

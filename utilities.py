@@ -22,3 +22,10 @@ class Window:
     WIDTH = 640
     HEIGHT = 480
     FPS = 60
+
+class Direction(IntEnum):
+    LEFT = 0
+    RIGHT = 1
+    UP = 2
+    DOWN = 3
+    NONE = 4
