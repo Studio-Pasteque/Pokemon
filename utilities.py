@@ -1,3 +1,5 @@
+from enum import IntEnum
+
 class Color:
     BLACK = (0, 0, 0)
     WHITE = (255, 255, 255)
@@ -15,3 +17,8 @@ class Color:
     LIGHT_BLUE = (104, 136, 252)
     LIGHT_PINK = (248, 164, 192)
     TEAL = (0, 136, 136)
+
+class Window:
+    WIDTH = 640
+    HEIGHT = 480
+    FPS = 60
