@@ -15,17 +15,19 @@ running = True
 while running:
     clock.tick(Window.FPS)
     
+    # draw
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
     
+    # update
     player.update()
     obstacle.update()
-    obstacle.collide_with(player.bounds)
+    player.collide_with(obstacle.bounds)
     
     screen.fill(Color.BLACK)
-    screen.blit(player.image, player.bounds)
     screen.blit(obstacle.image, obstacle.bounds)
+    screen.blit(player.image, player.bounds)
     
     pygame.display.update()
 

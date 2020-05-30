@@ -1,9 +1,8 @@
 from utilities import *
 import pygame
 
-class Player(pygame.sprite.Sprite):
+class Player():
     def __init__(self, x, y, path_to_image):
-        pygame.sprite.Sprite.__init__(self)        
         self.image = pygame.image.load(path_to_image)
         self.width = self.image.get_width()
         self.height = self.image.get_height()
@@ -62,9 +61,8 @@ class Player(pygame.sprite.Sprite):
         else:
             print("")
 
-class Object(pygame.sprite.Sprite):
+class Object():
     def __init__(self, x, y, path_to_image):
-        pygame.sprite.Sprite.__init__(self)        
         self.image = pygame.image.load(path_to_image)
         self.width = self.image.get_width()
         self.height = self.image.get_height()
